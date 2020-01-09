@@ -9,6 +9,8 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsAsErrors />
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Authors>Audacia</Authors>
+    <Description>Useful extensions to the xunit test framework</Description>
   </PropertyGroup>
 
   <ItemGroup>
