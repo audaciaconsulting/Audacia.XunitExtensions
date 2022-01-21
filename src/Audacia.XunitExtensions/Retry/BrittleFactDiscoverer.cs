@@ -26,13 +26,20 @@ namespace Audacia.XunitExtensions.Retry
         {
             if (factAttribute == null) throw new ArgumentNullException(nameof(factAttribute));
 
-            var maxRetries = factAttribute.GetNamedArgument<int>("MaxRetries");
-            if (maxRetries < 1)
-            {
-                maxRetries = 3;
-            }
+            return DiscoverImpl();
 
-            yield return new BrittleTestCase(_diagnosticMessageSink, discoveryOptions.MethodDisplayOrDefault(), discoveryOptions.MethodDisplayOptionsOrDefault(), testMethod, maxRetries);
+            // Implement local function so that arguments are validated correctly
+            // See https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1227.md
+            IEnumerable<IXunitTestCase> DiscoverImpl()
+            {
+                var maxRetries = factAttribute.GetNamedArgument<int>("MaxRetries");
+                if (maxRetries < 1)
+                {
+                    maxRetries = 3;
+                }
+
+                yield return new BrittleTestCase(_diagnosticMessageSink, discoveryOptions.MethodDisplayOrDefault(), discoveryOptions.MethodDisplayOptionsOrDefault(), testMethod, maxRetries);
+            }
         }
     }
 }
