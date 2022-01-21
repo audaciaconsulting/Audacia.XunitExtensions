@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit.Abstractions;
@@ -22,6 +23,7 @@ namespace Audacia.XunitExtensions.Retry
         /// <param name="constructorArguments">The test constructor arguments.</param>
         /// <param name="aggregator">An exception aggregator.</param>
         /// <param name="cancellationTokenSource">The cancellation token source.</param>
+        [SuppressMessage("Maintainability", "ACL1003:Signature contains too many parameters", Justification = "Needs all parameters.")]
         public static async Task<RunSummary> RetryTestAsync(
             Func<IMessageSink, IMessageBus, object[], ExceptionAggregator, CancellationTokenSource, Task<RunSummary>> test,
             int maxRetries,
@@ -38,7 +40,9 @@ namespace Audacia.XunitExtensions.Retry
             {
                 // This is really the only tricky bit: we need to capture and delay messages (since those will
                 // contain run status) until we know we've decided to accept the final result;
+#pragma warning disable IDISP001 // Dispose created - deliberate as we only want to dispose (which sends the messages) in certain circumstances
                 var delayedMessageBus = new DelayedMessageBus(messageBus);
+#pragma warning restore IDISP001 // Dispose created.
 
                 var summary = await test(diagnosticMessageSink, delayedMessageBus, constructorArguments, aggregator, cancellationTokenSource);
                 if (aggregator.HasExceptions || summary.Failed == 0 || runCount >= maxRetries)
@@ -48,7 +52,7 @@ namespace Audacia.XunitExtensions.Retry
                     return summary;
                 }
 
-                runCount += 1;
+                runCount++;
                 diagnosticMessageSink.OnMessage(new DiagnosticMessage("Execution of '{0}' failed (attempt #{1}), retrying...", testMethodDisplayName, runCount));
             }
         }

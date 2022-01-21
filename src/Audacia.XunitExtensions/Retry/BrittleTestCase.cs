@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit.Abstractions;
@@ -30,6 +31,7 @@ namespace Audacia.XunitExtensions.Retry
         /// <param name="testMethodDisplayOptions">Test method display options.</param>
         /// <param name="testMethod">The test method.</param>
         /// <param name="maxRetries">The maximum number of retries.</param>
+        [SuppressMessage("Maintainability", "ACL1003:Signature contains too many parameters", Justification = "All parameters needed.")]
         public BrittleTestCase(
             IMessageSink diagnosticMessageSink,
             TestMethodDisplay testMethodDisplay,

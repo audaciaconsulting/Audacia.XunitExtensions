@@ -18,7 +18,7 @@ namespace Audacia.XunitExtensions.Inconclusive
             _wrappedMessageBus = wrappedMessageBus;
         }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
         }
 

@@ -3,7 +3,6 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <IsPackable>true</IsPackable>
-    <CodeAnalysisRuleset>../../CodeAnalysis.ruleset</CodeAnalysisRuleset>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -11,6 +10,7 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsAsErrors />
+    <WarningLevel>9999</WarningLevel>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Authors>Audacia</Authors>
     <Description>Useful extensions to the xunit test framework</Description>
@@ -18,7 +18,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Audacia.CodeAnalysis" Version="0.0.52920.19330">
+    <PackageReference Include="Audacia.CodeAnalysis" Version="1.1.22019.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
