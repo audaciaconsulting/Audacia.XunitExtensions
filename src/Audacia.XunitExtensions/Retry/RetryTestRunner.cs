@@ -44,16 +44,27 @@ namespace Audacia.XunitExtensions.Retry
                 var delayedMessageBus = new DelayedMessageBus(messageBus);
 #pragma warning restore IDISP001 // Dispose created.
 
-                var summary = await test(diagnosticMessageSink, delayedMessageBus, constructorArguments, aggregator, cancellationTokenSource);
+                var summary = await test(
+                    diagnosticMessageSink,
+                    delayedMessageBus,
+                    constructorArguments,
+                    aggregator,
+                    cancellationTokenSource);
+
                 if (aggregator.HasExceptions || summary.Failed == 0 || runCount >= maxRetries)
                 {
-                    delayedMessageBus.Dispose();  // Sends all the delayed messages
+                    delayedMessageBus.Dispose(); // Sends all the delayed messages
 
                     return summary;
                 }
 
                 runCount++;
-                diagnosticMessageSink.OnMessage(new DiagnosticMessage("Execution of '{0}' failed (attempt #{1}), retrying...", testMethodDisplayName, runCount));
+                var message = new DiagnosticMessage(
+                    "Execution of '{0}' failed (attempt #{1}), retrying...",
+                    testMethodDisplayName,
+                    runCount);
+
+                diagnosticMessageSink.OnMessage(message);
             }
         }
     }

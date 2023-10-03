@@ -33,10 +33,12 @@ namespace Audacia.XunitExtensions.Inconclusive
                 {
                     // Replace XUnitTheoryTestCase with our 'Inconclusive' implementation
                     // Anything else will be a skipped test or an error condition, so they can stay as-is
+                    var methodDisplay = discoveryOptions.MethodDisplayOrDefault();
+                    var methodDisplayOptions = discoveryOptions.MethodDisplayOptionsOrDefault();
                     results[i] = new InconclusiveTheoryTestCase(
                         _diagnosticMessageSink,
-                        discoveryOptions.MethodDisplayOrDefault(),
-                        discoveryOptions.MethodDisplayOptionsOrDefault(),
+                        methodDisplay,
+                        methodDisplayOptions,
                         testMethod);
                 }
             }

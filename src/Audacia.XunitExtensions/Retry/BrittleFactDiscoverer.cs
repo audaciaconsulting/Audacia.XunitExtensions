@@ -38,7 +38,14 @@ namespace Audacia.XunitExtensions.Retry
                     maxRetries = 3;
                 }
 
-                yield return new BrittleTestCase(_diagnosticMessageSink, discoveryOptions.MethodDisplayOrDefault(), discoveryOptions.MethodDisplayOptionsOrDefault(), testMethod, maxRetries);
+                var methodDisplay = discoveryOptions.MethodDisplayOrDefault();
+                var methodDisplayOptions = discoveryOptions.MethodDisplayOptionsOrDefault();
+                yield return new BrittleTestCase(
+                    _diagnosticMessageSink,
+                    methodDisplay, 
+                    methodDisplayOptions, 
+                    testMethod, 
+                    maxRetries);
             }
         }
     }

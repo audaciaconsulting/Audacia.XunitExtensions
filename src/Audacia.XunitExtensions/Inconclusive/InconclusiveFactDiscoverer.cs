@@ -21,9 +21,18 @@ namespace Audacia.XunitExtensions.Inconclusive
         }
 
         /// <inheritdoc />
-        public IEnumerable<IXunitTestCase> Discover(ITestFrameworkDiscoveryOptions discoveryOptions, ITestMethod testMethod, IAttributeInfo factAttribute)
+        public IEnumerable<IXunitTestCase> Discover(
+            ITestFrameworkDiscoveryOptions discoveryOptions,
+            ITestMethod testMethod,
+            IAttributeInfo factAttribute)
         {
-            yield return new InconclusiveTestCase(_diagnosticMessageSink, discoveryOptions.MethodDisplayOrDefault(), discoveryOptions.MethodDisplayOptionsOrDefault(), testMethod);
+            var methodDisplay = discoveryOptions.MethodDisplayOrDefault();
+            var methodDisplayOptions = discoveryOptions.MethodDisplayOptionsOrDefault();
+            yield return new InconclusiveTestCase(
+                _diagnosticMessageSink,
+                methodDisplay, 
+                methodDisplayOptions,
+                testMethod);
         }
     }
 }
