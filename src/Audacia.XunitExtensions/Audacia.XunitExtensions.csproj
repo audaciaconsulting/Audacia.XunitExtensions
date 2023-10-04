@@ -17,7 +17,7 @@
     <WarningsAsErrors />
     <WarningLevel>9999</WarningLevel>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <Description>This repo is for potentially useful extensions to the xunit test framework</Description>
+    <Description>Useful extensions to the xunit test framework</Description>
     <Version>1.2.0.0</Version>
   </PropertyGroup>
 
