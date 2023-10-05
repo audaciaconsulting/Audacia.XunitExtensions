@@ -2,7 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
     <IsPackable>true</IsPackable>
+	<Author>Audacia</Author>
+	<PackageIcon>audacia-logo-circle-blue.png</PackageIcon>
+	<Nullable>enable</Nullable>
+	<LangVersion>8.0</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -12,13 +17,12 @@
     <WarningsAsErrors />
     <WarningLevel>9999</WarningLevel>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <Authors>Audacia</Authors>
     <Description>Useful extensions to the xunit test framework</Description>
-    <Version>1.1.0.0</Version>
+    <Version>1.2.0.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Audacia.CodeAnalysis" Version="1.1.22019.3">
+    <PackageReference Include="Audacia.CodeAnalysis" Version="1.5.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

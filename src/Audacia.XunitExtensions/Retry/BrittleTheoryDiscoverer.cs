@@ -36,22 +36,32 @@ namespace Audacia.XunitExtensions.Retry
                 {
                     // Replace XUnitTheoryTestCase with our 'Brittle' implementation
                     // Anything else will be a skipped test or an error condition, so they can stay as-is
-                    var maxRetries = theoryAttribute.GetNamedArgument<int>("MaxRetries");
-                    if (maxRetries < 1)
-                    {
-                        maxRetries = 3;
-                    }
-
-                    results[i] = new BrittleTheoryTestCase(
-                        _diagnosticMessageSink,
-                        discoveryOptions.MethodDisplayOrDefault(),
-                        discoveryOptions.MethodDisplayOptionsOrDefault(),
-                        testMethod,
-                        maxRetries);
+                    results[i] = CreateBrittleTheoryTestCase(discoveryOptions, testMethod, theoryAttribute);
                 }
             }
 
             return results;
+        }
+
+        private BrittleTheoryTestCase CreateBrittleTheoryTestCase(
+            ITestFrameworkDiscoveryOptions discoveryOptions, 
+            ITestMethod testMethod,
+            IAttributeInfo theoryAttribute)
+        {
+            var maxRetries = theoryAttribute.GetNamedArgument<int>("MaxRetries");
+            if (maxRetries < 1)
+            {
+                maxRetries = 3;
+            }
+
+            var methodDisplay = discoveryOptions.MethodDisplayOrDefault();
+            var methodDisplayOptions = discoveryOptions.MethodDisplayOptionsOrDefault();
+            return new BrittleTheoryTestCase(
+                _diagnosticMessageSink,
+                methodDisplay,
+                methodDisplayOptions,
+                testMethod,
+                maxRetries);
         }
     }
 }
