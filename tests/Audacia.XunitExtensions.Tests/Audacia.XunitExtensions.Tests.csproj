@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+	<IsPackable>false</IsPackable>
 	<Author>Audacia</Author>
 	<Nullable>enable</Nullable>
 	<LangVersion>8.0</LangVersion>
