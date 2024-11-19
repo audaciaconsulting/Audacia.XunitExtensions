@@ -1,13 +1,13 @@
 # Changelog
 
-## 1.2.0.0 - 2023-10-05
+## 1.1.22027 - 2023-10-05
 ### Added
 - No new functionality added.
 
 ### Changed
-- Prepare codebase for GitHub migration. 
+- Prepare codebase for GitHub migration.
 
-## 1.1.0.0 - 2020-04-30
+## 1.1.20121.1 - 2020-04-30
 ### Added
 - No new functionality added.
 
