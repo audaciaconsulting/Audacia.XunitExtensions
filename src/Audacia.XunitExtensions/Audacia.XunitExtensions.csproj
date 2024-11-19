@@ -18,7 +18,7 @@
     <WarningLevel>9999</WarningLevel>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Description>Useful extensions to the xunit test framework</Description>
-    <Version>1.2.0.0</Version>
+    <Version>1.1.22028</Version>
   </PropertyGroup>
 
   <ItemGroup>
