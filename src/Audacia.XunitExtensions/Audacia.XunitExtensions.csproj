@@ -22,7 +22,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="package-icon.png">
+    <None Include="audacia-logo-circle-blue.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
