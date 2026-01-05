@@ -29,6 +29,7 @@ stages:
         fileToSignPattern: 'Audacia.XunitExtensions.dll'
         serviceConnection: 'Audacia Code Signing'
         excludePaths: '*.Tests.csproj'
+        runTests: false
 
 - stage: Stage_Release
   displayName: Release
