@@ -5,7 +5,7 @@
 - No new functionality added.
 
 ### Changed
-- Upgraded to .NET 10.
+- Upgraded the Audacia.XunitExtensions.Tests project to .NET 10.
 
 ## 1.1.22027 - 2023-10-05
 ### Added
