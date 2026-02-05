@@ -4,10 +4,6 @@
 
 This repo is for potentially useful extensions to the xunit test framework. It is published as the `Audacia.XunitExtensions` NuGet package to the Audacia private NuGet feed.
 
-## Target framework
-
-This project targets **.NET 10**.
-
 ## Retrying Brittle Tests
 
 In certain circumstances (for example UI automation) it can be necessary to retry some tests on failure as the failure may be intermittent.
