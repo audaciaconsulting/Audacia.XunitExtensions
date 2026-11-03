@@ -18,7 +18,7 @@
     <WarningLevel>9999</WarningLevel>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Description>Useful extensions to the xunit test framework</Description>
-    <Version>1.1.22028</Version>
+    <Version>1.1.22029</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -33,7 +33,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="xunit.core" Version="2.4.1" />
+    <PackageReference Include="xunit.core" Version="2.9.3" />
   </ItemGroup>
 
 </Project>
